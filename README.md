@@ -2,8 +2,6 @@
 Charity platform based on private block chain
 
 ##challenge
---androidApp/webApp
-
-  --bigchandb
-
-    --rethinkdb
+--androidApp/webApp  
+  --bigchandb  
+    --rethinkdb  

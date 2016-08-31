@@ -1,12 +1,10 @@
-﻿#clusterdeploy
+# clusterdeploy
+
 ##shell+fabric+python
 
-###部署（顺序）
+###deploy
 ```
-配置blockchain-nodes
-chmod +x *.sh
-sed -i 's/\r$//' *.sh(如果出现^M问题)
-
+configure blockchain-nodes
 ./install_base_software.sh
 ./install_rethinkdb.sh
 ./configure_rethinkdb.sh

@@ -2,7 +2,7 @@
 
 ##shell+fabric
 
-##control
+###control
 ```
 configure blockchain-nodes
 

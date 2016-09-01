@@ -5,5 +5,5 @@ Charity platform based on private block chain
 --androidApp  
 --blockchain  
 
-http://charitychain.cn
-http://charitychain.readthedocs.io
+http://charitychain.cn  
+http://charitychain.readthedocs.io  

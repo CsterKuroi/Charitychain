@@ -6,22 +6,17 @@ set -e
 
 function printErr()
     {
-        echo "usage: ./make_confiles.sh <dir> <number_of_files>"
+        echo "usage: ./make_confiles.sh <number_of_files>"
         echo "No argument $1 supplied"
     }
 
 if [ -z "$1" ]; then
-    printErr "<dir>"
-    exit 1
-fi
-
-if [ -z "$2" ]; then
     printErr "<number_of_files>"
     exit 1
 fi
 
-CONFDIR=$1
-NUMFILES=$2
+CONFDIR=confiles
+NUMFILES=$1
 
 # If $CONFDIR exists, remove it
 if [ -d "$CONFDIR" ]; then
@@ -40,8 +35,8 @@ for (( i=0; i<$NUMFILES; i++ )); do
 done
 
 
-num_pairs=$2
-NUM_NODES=$2
+num_pairs=$1
+NUM_NODES=$1
 
 python3 write_keypairs_file.py $num_pairs
 python clusterize_confiles.py -k confiles $NUM_NODES

@@ -64,8 +64,8 @@ def get_transaction(tx_id):
 
     return flask.jsonify(**tx)
 
-@transaction_views.route('/transactions/tx_id=<tx_id>/status')
-def get_transaction_status(self, tx_id):
+@transaction_views.route('/transactions/status/tx_id=<tx_id>')
+def get_transaction_status(tx_id):
     """API endpoint to get details about the status of a transaction.
 
     Args:
@@ -80,11 +80,12 @@ def get_transaction_status(self, tx_id):
 
     with pool() as bigchain:
         status = bigchain.get_status(tx_id)
+        statusjson = {'status': status}
 
     if not status:
         return make_error(404)
 
-    return {'status': status}
+    return flask.jsonify(**statusjson)
 
 @transaction_views.route('/transactions/', methods=['POST'])
 def create_transaction():
@@ -130,14 +131,14 @@ def get_transaction_by_uuid(uuid):
     pool = current_app.config['bigchain_pool']
 
     with pool() as bigchain:
-        tx = bigchain.get_tx_by_payload_hash(uuid)
-
+        tx = bigchain.get_tx_by_payload_uuid(uuid)
+        txs = {'tx_list': tx}
     if not tx:
         #abort(404)
         return make_response(get_error_message(
             'Not Found', 'transaction', 'uuid=' + uuid))
 
-    return flask.jsonify(**tx)
+    return flask.jsonify(**txs)
 
 
 @transaction_views.route('/transactions/public_key=<public_key>')

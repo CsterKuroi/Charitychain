@@ -3,10 +3,16 @@
 # Charitychain
 Charity platform based on private block chain
 
-##challenge
---charity:android client demo
+## challenge
 
---simplechaindb:blockchain
+### charity: android client demo
+* front-end
+* call
+* localdb
 
+### simplechaindb: blockchain
+* RESTful API
+
+## Links
 * http://charitychain.cn
 * http://git.oschina.net/buaalining/Simplechaindb

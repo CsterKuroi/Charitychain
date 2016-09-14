@@ -1,17 +1,7 @@
-__author__ = 'PC-LiNing'
-
-# test bigchaindb api
 import json
 import requests
 
-get_transaction='http://10.2.1.22:9984/api/v1/transactions/'
-tx_id='16cd78bc53fc64c2bcbe8e991da1b88f57ba852c62734bcd9ea9e65b55cf75a9'
-
-# get detail of a transaction
-# data=requests.get(get_transaction+tx_id).text
-# print(data)
-
-# push a new transaction
+url='http://10.2.1.22:9984/api/v1/transactions/'
 
 values = """
   {
@@ -61,5 +51,6 @@ values = """
 headers = {
   'Content-Type': 'application/json'
 }
-r=requests.post(get_transaction,data=values,headers=headers)
+
+r=requests.post(url,data=values,headers=headers)
 print(r.text)
